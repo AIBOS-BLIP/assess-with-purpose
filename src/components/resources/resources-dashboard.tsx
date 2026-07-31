@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AuthorCard from "./author-card";
 import ContactForm from "./contact-form";
 import InfographicsSection from "./infographics-section";
 import VideoLibrary from "./video-library";
@@ -27,27 +27,8 @@ export default function ResourcesDashboard() {
 
       <section className="mt-12">
         <SectionHeading title="Contact" />
-        <div className="grid gap-6 sm:grid-cols-[auto_1fr] sm:items-start">
-          <div className="flex items-center gap-4 rounded-lg border border-black/10 p-4 sm:flex-col sm:items-start">
-            <Image
-              src="/images/anitia-lubbe.jpg"
-              alt="Photo of Prof Anitia Lubbe"
-              width={96}
-              height={96}
-              className="size-20 shrink-0 rounded-full object-cover sm:size-24"
-            />
-            <div>
-              <p className="font-heading text-base font-semibold text-foreground">
-                Prof Anitia Lubbe
-              </p>
-              <a
-                href="mailto:Anitia.Lubbe@nwu.ac.za"
-                className="text-sm text-brand-purple underline underline-offset-2"
-              >
-                Anitia.Lubbe@nwu.ac.za
-              </a>
-            </div>
-          </div>
+        <div className="grid gap-6 sm:grid-cols-[280px_1fr] sm:items-start">
+          <AuthorCard />
           <div className="rounded-lg border border-black/10 p-4 sm:p-5">
             <ContactForm />
           </div>
