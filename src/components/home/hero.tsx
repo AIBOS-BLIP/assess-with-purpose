@@ -51,10 +51,13 @@ export default function Hero() {
             Start Your Learning Journey
           </Link>
 
-          <span className="flex cursor-not-allowed items-center gap-2 text-sm text-white/60">
+          <a
+            href="#watch-intro"
+            className="hover-glow-sm flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
             <PlayCircle aria-hidden="true" className="size-5" />
-            Introductory video coming soon
-          </span>
+            Watch the introduction
+          </a>
         </motion.div>
       </div>
     </section>

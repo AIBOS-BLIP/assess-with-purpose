@@ -1,4 +1,3 @@
-import { PlayCircle } from "lucide-react";
 import Hero from "@/components/home/hero";
 import LearningPathway from "@/components/home/learning-pathway";
 import ModuleTimeline from "@/components/home/module-timeline";
@@ -70,15 +69,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-black/[0.02] px-4 py-16 sm:px-6">
+      <section id="watch-intro" className="scroll-mt-24 bg-black/[0.02] px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="font-heading text-3xl font-bold text-brand-purple">
               Watch the introduction
             </h2>
-            <div className="mx-auto mt-8 flex aspect-video max-w-2xl flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-black/15 bg-white text-brand-grey">
-              <PlayCircle aria-hidden="true" className="size-12" />
-              <p className="text-sm">[VIDEO LINK REQUIRED]</p>
+            <p className="mt-2 text-sm text-brand-grey">
+              &ldquo;Assessment Animation&rdquo; — Education Scotland,
+              approximately 3 minutes
+            </p>
+            <div className="hover-glow mx-auto mt-8 aspect-video max-w-2xl overflow-hidden rounded-xl border border-black/10 shadow-sm">
+              <iframe
+                className="size-full"
+                src="https://www.youtube.com/embed/JVHyGPYiuos"
+                title="Assessment Animation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </ScrollReveal>
         </div>
