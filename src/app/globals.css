@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* NWU primary brand colours (CID manual, Pantone 2603 / 3145 / 430) */
+  --color-brand-purple: #6c3d91;
+  --color-brand-purple-dark: #4f2c6b;
+  --color-brand-teal: #00889c;
+  --color-brand-grey: #78848e;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* NWU secondary (faculty) accent colours — approved for accents, not primary use */
+  --color-accent-orange: #f47d3a;
+  --color-accent-pink: #e32974;
+  --color-accent-red: #e83c3e;
+  --color-accent-lavender: #ba8bbe;
+  --color-accent-green: #79c14e;
+  --color-accent-gold: #ffd525;
+  --color-accent-steel: #7f939f;
+  --color-accent-blue: #0076bc;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Typography per NWU brand style guide */
+  --font-heading: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  --color-background: #ffffff;
+  --color-foreground: #1f2328;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Neon-style glow accents, built from the brand palette (purple / teal /
+   grey) rather than arbitrary neon colours — used on hover/focus so
+   interactive elements feel like they light up from underneath. */
+.hover-glow {
+  position: relative;
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+.hover-glow:hover,
+.hover-glow:focus-visible {
+  transform: translateY(-3px);
+  box-shadow:
+    0 22px 44px -14px rgba(108, 61, 145, 0.55),
+    0 14px 28px -10px rgba(0, 136, 156, 0.45);
+}
+
+.hover-glow-sm {
+  transition:
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+.hover-glow-sm:hover,
+.hover-glow-sm:focus-visible {
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 22px -8px rgba(108, 61, 145, 0.45),
+    0 6px 14px -6px rgba(120, 132, 142, 0.35);
+}
+
+.glow-text {
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 42px rgba(0, 136, 156, 0.65),
+    0 0 80px rgba(108, 61, 145, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-glow:hover,
+  .hover-glow:focus-visible,
+  .hover-glow-sm:hover,
+  .hover-glow-sm:focus-visible {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

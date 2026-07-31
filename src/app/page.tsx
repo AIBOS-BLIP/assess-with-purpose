@@ -1,65 +1,102 @@
-import Image from "next/image";
+import { PlayCircle } from "lucide-react";
+import Hero from "@/components/home/hero";
+import LearningPathway from "@/components/home/learning-pathway";
+import ModuleTimeline from "@/components/home/module-timeline";
+import ScrollReveal from "@/components/scroll-reveal";
 
-export default function Home() {
+const statements = [
+  {
+    text: "Assessment is more than grading.",
+    citation: null,
+  },
+  {
+    text: "How assessment is conducted has consequences for student engagement and learning.",
+    citation: "Hay et al., 2015",
+  },
+  {
+    text: "Assessment is rooted in a verb — ‘to sit down beside’ — implying students’ active involvement in the process.",
+    citation: "Lubbe, 2020",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+
+      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
+        <ScrollReveal>
+          <p className="text-lg leading-relaxed text-foreground">
+            Assessment shapes how students learn — yet many lecturers receive
+            little formal preparation in designing it well. Assess with
+            Purpose is a practical, openly licensed guide to help you design
+            fair, aligned, and meaningful assessments across your
+            undergraduate teaching.
           </p>
+        </ScrollReveal>
+      </section>
+
+      <section className="bg-black/[0.02] px-4 py-16 sm:px-6">
+        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
+          {statements.map((statement, index) => (
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <blockquote className="flex h-full flex-col justify-center rounded-xl bg-brand-purple px-6 py-8 text-center shadow-md">
+                <p className="font-heading text-xl font-semibold text-white">
+                  {statement.text}
+                </p>
+                {statement.citation && (
+                  <cite className="mt-3 block text-xs font-normal not-italic text-white/70">
+                    — {statement.citation}
+                  </cite>
+                )}
+              </blockquote>
+            </ScrollReveal>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <ScrollReveal>
+          <h2 className="text-center font-heading text-3xl font-bold text-brand-purple">
+            Your learning pathway
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-brand-grey">
+            Assessment literacy builds progressively. Select any stage to
+            jump straight into that module.
+          </p>
+        </ScrollReveal>
+        <div className="mt-12">
+          <LearningPathway />
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="bg-black/[0.02] px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <ScrollReveal>
+            <h2 className="font-heading text-3xl font-bold text-brand-purple">
+              Watch the introduction
+            </h2>
+            <div className="mx-auto mt-8 flex aspect-video max-w-2xl flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-black/15 bg-white text-brand-grey">
+              <PlayCircle aria-hidden="true" className="size-12" />
+              <p className="text-sm">[VIDEO LINK REQUIRED]</p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <ScrollReveal>
+          <h2 className="text-center font-heading text-3xl font-bold text-brand-purple">
+            Module timeline
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-brand-grey">
+            Track what&apos;s ahead across all five modules.
+          </p>
+        </ScrollReveal>
+        <div className="mt-12">
+          <ModuleTimeline />
+        </div>
+      </section>
+    </>
   );
 }
